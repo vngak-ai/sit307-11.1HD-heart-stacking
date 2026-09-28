@@ -1,0 +1,8 @@
+,Accuracy on seen rows,Accuracy on unseen rows,Errors on seen rows,Errors on unseen rows
+LR,0.8241206030150754,1.0,35,0
+DT,1.0,0.5,0,3
+RF,1.0,0.5,0,3
+XGB,1.0,0.5,0,3
+NB,0.8190954773869347,1.0,36,0
+KNN,0.8442211055276382,1.0,31,0
+Stacking,1.0,0.5,0,3
