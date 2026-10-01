@@ -44,8 +44,8 @@ pip install -r requirements.txt
 
 Run the notebooks **in this order**, each with *Restart Kernel and Run All*:
 
-1. `notebooks/part1_reproduction.ipynb` (about 1–2 minutes)
-2. `notebooks/part2_proposed.ipynb` (about 6–20 minutes depending on the number of CPU cores)
+1. `notebooks/part1_reproduction.ipynb`
+2. `notebooks/part2_proposed.ipynb` (the slower notebook: Experiment 1 alone took about 8 minutes on the author's machine, and the nested CV in Experiment 2 takes longer; grid search uses all available CPU cores)
 
 Part 2 reads two files written by Part 1 (`results/paper_table11.csv` and `results/part1_multiseed_raw.csv`), so Part 1 must be run first.
 
@@ -53,7 +53,7 @@ All random seeds are fixed in the notebooks, so re-running produces the same num
 
 ### Resuming Part 2
 
-Part 2 saves each outer fold of the nested cross-validation to `results/cache/`. If a run is interrupted, running the notebook again resumes from the last finished fold. **Delete `results/cache/` to recompute everything from scratch.** This package is distributed without the cache, so a first run always computes all results.
+Part 2 saves each outer fold of the nested cross-validation to `results/cache/`. If a run is interrupted, running the notebook again resumes from the last finished fold. **Delete `results/cache/` to recompute everything from scratch.** This package is distributed without the cache, so a first run always computes all results. The saved outputs of Experiment 2 in `part2_proposed.ipynb` were produced from cached folds, so the elapsed time printed there (about 1 s) does not reflect the real computation time.
 
 ## 4. Expected key results
 
@@ -66,7 +66,7 @@ Part 2 saves each outer fold of the nested cross-validation to `results/cache/`.
 | Part 2, Exp. 1: optimism of the proposed protocol | +0.004 |
 | Part 2, Exp. 2: tuned stacking accuracy, nested CV (50 outer folds) | 0.835 |
 
-Reproducibility check: both notebooks were executed independently on Windows (xgboost 3.2.0) and Linux (xgboost 3.4.1). All accuracies, selected hyperparameters and statistical conclusions were identical; the only difference was an AUC change of 0.0001 for the default stacking model, caused by the different xgboost version. The numbers in the report were produced with the versions in `requirements.txt`.
+The numbers in the report were produced with the versions in `requirements.txt`.
 
 ## 5. Outputs
 
